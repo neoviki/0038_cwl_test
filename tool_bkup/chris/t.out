@@ -1,0 +1,42 @@
+viki parsing steps
+viki parsing steps
+viki parsing steps
+viki parsing steps
+viki parsing steps
+viki parsing steps
+{
+    "assemblyAssembly": {
+        "checksum": "sha1$40eba96f35ef400ac1c6440f628ff482bfa7ef11", 
+        "basename": "megahit.contigs.fa", 
+        "location": "file:///home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/megahit.contigs.fa", 
+        "path": "/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/megahit.contigs.fa", 
+        "class": "File", 
+        "size": 411017
+    }, 
+    "assemblyLog": {
+        "checksum": "sha1$ca18bab64a40c65c3a550234547c5a39c7df43dc", 
+        "basename": "megahit.log.gz", 
+        "location": "file:///home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/megahit.log.gz", 
+        "path": "/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/megahit.log.gz", 
+        "class": "File", 
+        "size": 13132
+    }, 
+    "mappingSamFile": [
+        {
+            "checksum": "sha1$8975ef5d3b0e60bc4b7a54e6dbcf20b8f19af1f9", 
+            "basename": "sample1.sam", 
+            "location": "file:///home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/sample1.sam", 
+            "path": "/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/sample1.sam", 
+            "class": "File", 
+            "size": 31348292
+        }, 
+        {
+            "checksum": "sha1$a2e96259b360a2909d291887435ea657078ab8f9", 
+            "basename": "sample2.sam", 
+            "location": "file:///home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/sample2.sam", 
+            "path": "/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/sample2.sam", 
+            "class": "File", 
+            "size": 31397795
+        }
+    ]
+}

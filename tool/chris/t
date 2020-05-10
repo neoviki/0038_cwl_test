@@ -1,0 +1,630 @@
+vv:chris viki$ ls
+c		log.txt1	run.sh		script1.log	test.log
+distributed_cwl	output		sc.log		t.log		testfile
+input_data	output.log	sc1		t.out		workflow
+vv:chris viki$ [wd
+-bash: [wd: command not found
+vv:chris viki$ pwd
+/Users/viki/cwl_test/tool/chris
+vv:chris viki$ ./run.sh 
+Traceback (most recent call last):
+  File "/Users/viki/cwl_test/tool/cwltool.py", line 11, in <module>
+    from cwltool import main
+  File "/Users/viki/cwl_test/tool/cwltool/main.py", line 26, in <module>
+    from . import command_line_tool, workflow
+  File "/Users/viki/cwl_test/tool/cwltool/command_line_tool.py", line 37, in <module>
+    from .singularity import SingularityCommandLineJob
+  File "/Users/viki/cwl_test/tool/cwltool/singularity.py", line 41
+    viki_logger(frameinfo.filename, frameinfo.lineno, commands)
+    ^
+IndentationError: unexpected indent
+vv:chris viki$ vim /Users/viki/cwl_test/tool/cwltool/singularity.py
+vv:chris viki$ 
+  [Restored Aug 7, 2018, 9:26:29 PM]
+Last login: Tue Aug  7 21:19:29 on ttys000
+Restored session: Tue Aug  7 21:26:24 CEST 2018
+vv:chris viki$ vim /Users/viki/cwl_test/tool/cwltool/singularity.py
+vv:chris viki$ ./run.sh 
+Traceback (most recent call last):
+  File "/Users/viki/cwl_test/tool/cwltool.py", line 11, in <module>
+    from cwltool import main
+  File "/Users/viki/cwl_test/tool/cwltool/main.py", line 26, in <module>
+    from . import command_line_tool, workflow
+  File "/Users/viki/cwl_test/tool/cwltool/command_line_tool.py", line 37, in <module>
+    from .singularity import SingularityCommandLineJob
+  File "/Users/viki/cwl_test/tool/cwltool/singularity.py", line 145
+    viki_logger(frameinfo.filename, frameinfo.lineno, commands)
+    ^
+IndentationError: unexpected indent
+vv:chris viki$ vim /Users/viki/cwl_test/tool/cwltool/singularity.py
+vv:chris viki$ vim /Users/viki/cwl_test/tool/cwltool/singularity.py
+vv:chris viki$ ./run.sh 
+/Users/viki/cwl_test/tool/cwltool.py 1.0.20180306140409
+Resolved 'workflow/main.cwl' to 'file:///Users/viki/cwl_test/tool/chris/workflow/main.cwl'
+I'm sorry, I couldn't load this CWL file, try again with --debug for more information.
+The error was: global name 'viki_job_executer' is not defined
+vv:chris viki$ vim /Users/viki/cwl_test/tool/cwltool/singularity.py
+vv:chris viki$ pwd
+/Users/viki/cwl_test/tool/chris
+vv:chris viki$ cd ../cwltool
+vv:cwltool viki$ grep viki_job_executer *
+docker.py:                        loadproc = viki_job_executer(cmd, stdin=dload, stdout=sys.stderr, cwd=None)
+docker.py:                    loadproc = viki_job_executer(cmd, stdin=subprocess.PIPE,
+Binary file docker.pyc matches
+job.py:from .viki_log import viki_job_executer
+job.py:    sp = viki_job_executer(commands,
+job.py:        sproc = viki_job_executer(commands,
+job.py:            sproc = viki_job_executer(
+Binary file job.pyc matches
+grep: jshint: Is a directory
+sandboxjs.py:                nodejs = viki_job_executer([n, "--eval", js_text],
+sandboxjs.py:            nodejs = viki_job_executer(["docker", "run",
+Binary file sandboxjs.pyc matches
+grep: schemas: Is a directory
+viki_log.py:def viki_job_executer(commands, shell, close_fds, stdin, stdout, stderr, env, cwd):
+Binary file viki_log.pyc matches
+vv:cwltool viki$ vim job.py
+vv:cwltool viki$ vim sandboxjs.py
+vv:cwltool viki$ vim docker.py
+vv:cwltool viki$ grep viki_job_executer *
+docker.py:from .viki_log import viki_job_executer
+docker.py:                        loadproc = viki_job_executer(cmd, stdin=dload, stdout=sys.stderr, cwd=None)
+docker.py:                    loadproc = viki_job_executer(cmd, stdin=subprocess.PIPE,
+Binary file docker.pyc matches
+job.py:from .viki_log import viki_job_executer
+job.py:    sp = viki_job_executer(commands,
+job.py:        sproc = viki_job_executer(commands,
+job.py:            sproc = viki_job_executer(
+Binary file job.pyc matches
+grep: jshint: Is a directory
+sandboxjs.py:from .viki_log import viki_job_executer
+sandboxjs.py:                nodejs = viki_job_executer([n, "--eval", js_text],
+sandboxjs.py:            nodejs = viki_job_executer(["docker", "run",
+Binary file sandboxjs.pyc matches
+grep: schemas: Is a directory
+viki_log.py:def viki_job_executer(commands, shell, close_fds, stdin, stdout, stderr, env, cwd):
+Binary file viki_log.pyc matches
+vv:cwltool viki$ cd ../chris/
+vv:chris viki$ ./run.sh 
+/Users/viki/cwl_test/tool/cwltool.py 1.0.20180306140409
+Resolved 'workflow/main.cwl' to 'file:///Users/viki/cwl_test/tool/chris/workflow/main.cwl'
+I'm sorry, I couldn't load this CWL file, try again with --debug for more information.
+The error was: viki_job_executer() takes exactly 8 arguments (5 given)
+vv:chris viki$ cd ../cwltool
+vv:cwltool viki$ grep viki_job_executer *
+docker.py:from .viki_log import viki_job_executer
+docker.py:                        loadproc = viki_job_executer(cmd, stdin=dload, stdout=sys.stderr, cwd=None)
+docker.py:                    loadproc = viki_job_executer(cmd, stdin=subprocess.PIPE,
+Binary file docker.pyc matches
+job.py:from .viki_log import viki_job_executer
+job.py:    sp = viki_job_executer(commands,
+job.py:        sproc = viki_job_executer(commands,
+job.py:            sproc = viki_job_executer(
+Binary file job.pyc matches
+grep: jshint: Is a directory
+sandboxjs.py:from .viki_log import viki_job_executer
+sandboxjs.py:                nodejs = viki_job_executer([n, "--eval", js_text],
+sandboxjs.py:            nodejs = viki_job_executer(["docker", "run",
+Binary file sandboxjs.pyc matches
+grep: schemas: Is a directory
+viki_log.py:def viki_job_executer(commands, shell, close_fds, stdin, stdout, stderr, env, cwd):
+Binary file viki_log.pyc matches
+vv:cwltool viki$ vim sandboxjs.py
+vv:cwltool viki$ vim sandboxjs.py
+vv:cwltool viki$ vim docker.py
+vv:cwltool viki$ cd ../chris/
+vv:chris viki$ ./run.sh 
+/Users/viki/cwl_test/tool/cwltool.py 1.0.20180306140409
+Resolved 'workflow/main.cwl' to 'file:///Users/viki/cwl_test/tool/chris/workflow/main.cwl'
+[workflow ] start
+viki parsing steps
+[workflow ] viki step starting step assembly
+[step assembly] start
+[workflow assembly] start
+viki parsing steps
+[workflow assembly] viki step starting step assemble
+[step assemble] start
+[job assemble] Output of job will be cached in /Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+Workflow error, try again with --debug for more information:
+Docker is not available for this tool, try --no-container to disable Docker, or install a user space Docker replacement like uDocker with --user-space-docker-cmd.: Cannot communicate with docker daemon: Command '['docker', 'version']' returned non-zero exit status 1.
+vv:chris viki$ ./run.sh 
+/Users/viki/cwl_test/tool/cwltool.py 1.0.20180306140409
+Resolved 'workflow/main.cwl' to 'file:///Users/viki/cwl_test/tool/chris/workflow/main.cwl'
+[workflow ] start
+viki parsing steps
+[workflow ] viki step starting step assembly
+[step assembly] start
+[workflow assembly] start
+viki parsing steps
+viki parsing steps
+[workflow assembly] viki step starting step assemble
+[step assemble] start
+[job assemble] Output of job will be cached in /Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9
+Error response from daemon: Bad response from Docker engine
+Workflow error, try again with --debug for more information:
+Docker is not available for this tool, try --no-container to disable Docker, or install a user space Docker replacement like uDocker with --user-space-docker-cmd.: Cannot communicate with docker daemon: Command '['docker', 'version']' returned non-zero exit status 1.
+vv:chris viki$ ./run.sh 
+/Users/viki/cwl_test/tool/cwltool.py 1.0.20180306140409
+Resolved 'workflow/main.cwl' to 'file:///Users/viki/cwl_test/tool/chris/workflow/main.cwl'
+[workflow ] start
+viki parsing steps
+[workflow ] viki step starting step assembly
+[step assembly] start
+[workflow assembly] start
+viki parsing steps
+[workflow assembly] viki step starting step assemble
+[step assemble] start
+[job assemble] Output of job will be cached in /Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9
+[job assemble] Skipping Docker software container '--memory' limit despite presence of ResourceRequirement with ramMin and/or ramMax setting. Consider running with --strict-memory-limit for increased portability assurance.
+[u'docker', u'run', u'-i', u'--volume=/Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9:/var/spool/cwl:rw', u'--volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpx8r4eA:/tmp:rw', u'--volume=/Users/viki/cwl_test/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stg38d7d2eb-4c23-4d39-83ee-6aacaf004ee1/sample2_R1.trimmed.fastq.gz:ro', u'--volume=/Users/viki/cwl_test/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stgd80e2dd4-da4e-4862-99cf-2ad8927fa406/sample1_R1.trimmed.fastq.gz:ro', u'--volume=/Users/viki/cwl_test/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stg07c08b22-ec80-40e2-a3b6-97581716e917/sample1_R2.trimmed.fastq.gz:ro', u'--volume=/Users/viki/cwl_test/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stg70c331fd-dce9-412f-99af-70b892f939fb/sample2_R2.trimmed.fastq.gz:ro', u'--volume=/Users/viki/cwl_test/tool/chris/input_data/sample2_unpaired.trimmed.fastq.gz:/var/lib/cwl/stgbce9dd53-0a21-4ff6-a917-68f948e2e43d/sample2_unpaired.trimmed.fastq.gz:ro', u'--volume=/Users/viki/cwl_test/tool/chris/input_data/sample1_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg019f92b7-deff-4690-8920-628cc7a325be/sample1_unpaired.trimmed.fastq.gz:ro', u'--workdir=/var/spool/cwl', u'--read-only=true', u'--user=501:20', u'--rm', u'--env=TMPDIR=/tmp', u'--env=HOME=/var/spool/cwl', 'quay.io/biocontainers/megahit:1.1.1--py35_0']
+[job assemble] /Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9$ docker \
+    run \
+    -i \
+    --volume=/Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9:/var/spool/cwl:rw \
+    --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpx8r4eA:/tmp:rw \
+    --volume=/Users/viki/cwl_test/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stg38d7d2eb-4c23-4d39-83ee-6aacaf004ee1/sample2_R1.trimmed.fastq.gz:ro \
+    --volume=/Users/viki/cwl_test/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stgd80e2dd4-da4e-4862-99cf-2ad8927fa406/sample1_R1.trimmed.fastq.gz:ro \
+    --volume=/Users/viki/cwl_test/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stg07c08b22-ec80-40e2-a3b6-97581716e917/sample1_R2.trimmed.fastq.gz:ro \
+    --volume=/Users/viki/cwl_test/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stg70c331fd-dce9-412f-99af-70b892f939fb/sample2_R2.trimmed.fastq.gz:ro \
+    --volume=/Users/viki/cwl_test/tool/chris/input_data/sample2_unpaired.trimmed.fastq.gz:/var/lib/cwl/stgbce9dd53-0a21-4ff6-a917-68f948e2e43d/sample2_unpaired.trimmed.fastq.gz:ro \
+    --volume=/Users/viki/cwl_test/tool/chris/input_data/sample1_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg019f92b7-deff-4690-8920-628cc7a325be/sample1_unpaired.trimmed.fastq.gz:ro \
+    --workdir=/var/spool/cwl \
+    --read-only=true \
+    --user=501:20 \
+    --rm \
+    --env=TMPDIR=/tmp \
+    --env=HOME=/var/spool/cwl \
+    quay.io/biocontainers/megahit:1.1.1--py35_0 \
+    megahit \
+    -t \
+    4 \
+    --out-prefix \
+    megahit \
+    -1 \
+    /var/lib/cwl/stgd80e2dd4-da4e-4862-99cf-2ad8927fa406/sample1_R1.trimmed.fastq.gz,/var/lib/cwl/stg38d7d2eb-4c23-4d39-83ee-6aacaf004ee1/sample2_R1.trimmed.fastq.gz \
+    -2 \
+    /var/lib/cwl/stg07c08b22-ec80-40e2-a3b6-97581716e917/sample1_R2.trimmed.fastq.gz,/var/lib/cwl/stg70c331fd-dce9-412f-99af-70b892f939fb/sample2_R2.trimmed.fastq.gz \
+    --presets \
+    meta-sensitive \
+    -r \
+    /var/lib/cwl/stg019f92b7-deff-4690-8920-628cc7a325be/sample1_unpaired.trimmed.fastq.gz,/var/lib/cwl/stgbce9dd53-0a21-4ff6-a917-68f948e2e43d/sample2_unpaired.trimmed.fastq.gz
+viki job_popen called
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 556 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 560 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 572 ]
+4.834Gb memory in total.
+Using: 4.35Gb.
+Maximum number of available CPU thread is 2.
+Number of thread is reset to the 2.
+MEGAHIT v1.1.1
+--- [Tue Aug  7 19:35:33 2018] Start assembly. Number of CPU threads 2 ---
+--- [Tue Aug  7 19:35:33 2018] Available memory: 5189988352, used: 4670989516
+--- [Tue Aug  7 19:35:33 2018] Converting reads to binaries ---
+b'    [read_lib_functions-inl.h  : 209]     Lib 0 (/var/lib/cwl/stgd80e2dd4-da4e-4862-99cf-2ad8927fa406/sample1_R1.trimmed.fastq.gz,/var/lib/cwl/stg07c08b22-ec80-40e2-a3b6-97581716e917/sample1_R2.trimmed.fastq.gz): pe, 48928 reads, 301 max length'
+b'    [read_lib_functions-inl.h  : 209]     Lib 1 (/var/lib/cwl/stg38d7d2eb-4c23-4d39-83ee-6aacaf004ee1/sample2_R1.trimmed.fastq.gz,/var/lib/cwl/stg70c331fd-dce9-412f-99af-70b892f939fb/sample2_R2.trimmed.fastq.gz): pe, 48926 reads, 301 max length'
+b'    [read_lib_functions-inl.h  : 209]     Lib 2 (/var/lib/cwl/stg019f92b7-deff-4690-8920-628cc7a325be/sample1_unpaired.trimmed.fastq.gz): se, 500 reads, 301 max length'
+b'    [read_lib_functions-inl.h  : 209]     Lib 3 (/var/lib/cwl/stgbce9dd53-0a21-4ff6-a917-68f948e2e43d/sample2_unpaired.trimmed.fastq.gz): se, 519 reads, 301 max length'
+b'    [utils.h                   : 126]     Real: 1.8431\tuser: 0.2400\tsys: 0.2200\tmaxrss: 8244'
+--- [Tue Aug  7 19:35:35 2018] k list: 21,29,39,49,59,69,79,89,99,109,119,129,141 ---
+--- [Tue Aug  7 19:35:35 2018] Extracting solid (k+1)-mers and building sdbg for k = 21 ---
+--- [Tue Aug  7 19:35:46 2018] Assembling contigs from SdBG for k = 21 ---
+--- [Tue Aug  7 19:36:02 2018] Local assembling k = 21 ---
+--- [Tue Aug  7 19:36:06 2018] Extracting iterative edges from k = 21 to 29 ---
+--- [Tue Aug  7 19:36:17 2018] Building graph for k = 29 ---
+--- [Tue Aug  7 19:36:19 2018] Assembling contigs from SdBG for k = 29 ---
+--- [Tue Aug  7 19:36:24 2018] Local assembling k = 29 ---
+--- [Tue Aug  7 19:36:29 2018] Extracting iterative edges from k = 29 to 39 ---
+--- [Tue Aug  7 19:36:40 2018] Building graph for k = 39 ---
+--- [Tue Aug  7 19:36:43 2018] Assembling contigs from SdBG for k = 39 ---
+--- [Tue Aug  7 19:36:47 2018] Local assembling k = 39 ---
+--- [Tue Aug  7 19:36:56 2018] Extracting iterative edges from k = 39 to 49 ---
+--- [Tue Aug  7 19:37:03 2018] Building graph for k = 49 ---
+--- [Tue Aug  7 19:37:04 2018] Assembling contigs from SdBG for k = 49 ---
+--- [Tue Aug  7 19:37:07 2018] Local assembling k = 49 ---
+--- [Tue Aug  7 19:37:21 2018] Extracting iterative edges from k = 49 to 59 ---
+--- [Tue Aug  7 19:37:30 2018] Building graph for k = 59 ---
+--- [Tue Aug  7 19:37:32 2018] Assembling contigs from SdBG for k = 59 ---
+--- [Tue Aug  7 19:37:36 2018] Local assembling k = 59 ---
+--- [Tue Aug  7 19:37:43 2018] Extracting iterative edges from k = 59 to 69 ---
+--- [Tue Aug  7 19:37:46 2018] Building graph for k = 69 ---
+--- [Tue Aug  7 19:37:47 2018] Assembling contigs from SdBG for k = 69 ---
+--- [Tue Aug  7 19:37:50 2018] Local assembling k = 69 ---
+--- [Tue Aug  7 19:37:57 2018] Extracting iterative edges from k = 69 to 79 ---
+--- [Tue Aug  7 19:38:01 2018] Building graph for k = 79 ---
+--- [Tue Aug  7 19:38:02 2018] Assembling contigs from SdBG for k = 79 ---
+--- [Tue Aug  7 19:38:05 2018] Local assembling k = 79 ---
+--- [Tue Aug  7 19:38:11 2018] Extracting iterative edges from k = 79 to 89 ---
+--- [Tue Aug  7 19:38:13 2018] Building graph for k = 89 ---
+--- [Tue Aug  7 19:38:14 2018] Assembling contigs from SdBG for k = 89 ---
+--- [Tue Aug  7 19:38:17 2018] Local assembling k = 89 ---
+--- [Tue Aug  7 19:38:23 2018] Extracting iterative edges from k = 89 to 99 ---
+--- [Tue Aug  7 19:38:28 2018] Building graph for k = 99 ---
+--- [Tue Aug  7 19:38:29 2018] Assembling contigs from SdBG for k = 99 ---
+--- [Tue Aug  7 19:38:31 2018] Local assembling k = 99 ---
+--- [Tue Aug  7 19:38:39 2018] Extracting iterative edges from k = 99 to 109 ---
+--- [Tue Aug  7 19:38:42 2018] Building graph for k = 109 ---
+--- [Tue Aug  7 19:38:42 2018] Assembling contigs from SdBG for k = 109 ---
+--- [Tue Aug  7 19:38:44 2018] Local assembling k = 109 ---
+--- [Tue Aug  7 19:38:50 2018] Extracting iterative edges from k = 109 to 119 ---
+--- [Tue Aug  7 19:38:53 2018] Building graph for k = 119 ---
+--- [Tue Aug  7 19:38:54 2018] Assembling contigs from SdBG for k = 119 ---
+--- [Tue Aug  7 19:38:56 2018] Local assembling k = 119 ---
+--- [Tue Aug  7 19:39:03 2018] Extracting iterative edges from k = 119 to 129 ---
+--- [Tue Aug  7 19:39:06 2018] Building graph for k = 129 ---
+--- [Tue Aug  7 19:39:07 2018] Assembling contigs from SdBG for k = 129 ---
+--- [Tue Aug  7 19:39:09 2018] Local assembling k = 129 ---
+--- [Tue Aug  7 19:39:19 2018] Extracting iterative edges from k = 129 to 141 ---
+--- [Tue Aug  7 19:39:25 2018] Building graph for k = 141 ---
+--- [Tue Aug  7 19:39:25 2018] Assembling contigs from SdBG for k = 141 ---
+--- [Tue Aug  7 19:39:28 2018] Merging to output final contigs ---
+--- [STAT] 928 contigs, total 380339 bp, min 202 bp, max 999 bp, avg 410 bp, N50 419 bp
+--- [Tue Aug  7 19:39:28 2018] ALL DONE. Time elapsed: 234.846394 seconds ---
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 574 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 588 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 293 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 305 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 319 ]
+outputs  :  {u'assembly': {'checksum': 'sha1$d8dac7e31214b4fb6dfe05b18f65fb5baa29c93f', 'basename': 'megahit.contigs.fa', 'nameext': '.fa', 'nameroot': 'megahit.contigs', 'http://commonwl.org/cwltool#generation': 0, 'location': 'file:///Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9/megahit_out/megahit.contigs.fa', 'class': 'File', 'size': 416915L}, u'log': {'checksum': 'sha1$dceb00b00831a70afeb5782722c7b550b6c9ab15', 'basename': 'megahit.log', 'nameext': '.log', 'nameroot': 'megahit', 'http://commonwl.org/cwltool#generation': 0, 'location': 'file:///Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9/megahit_out/megahit.log', 'class': 'File', 'size': 136022L}}
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 322 ]
+outputs  :  {u'assembly': {'checksum': u'sha1$d8dac7e31214b4fb6dfe05b18f65fb5baa29c93f', 'basename': u'megahit.contigs.fa', 'nameext': u'.fa', 'nameroot': u'megahit.contigs', 'http://commonwl.org/cwltool#generation': 0, 'location': u'file:///Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9/megahit_out/megahit.contigs.fa', 'class': u'File', 'size': 416915L}, u'log': {'checksum': u'sha1$dceb00b00831a70afeb5782722c7b550b6c9ab15', 'basename': u'megahit.log', 'nameext': u'.log', 'nameroot': u'megahit', 'http://commonwl.org/cwltool#generation': 0, 'location': u'file:///Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9/megahit_out/megahit.log', 'class': u'File', 'size': 136022L}}
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 325 ]
+[job assemble] viki job completed success
+[step assemble] completed success
+viki parsing steps
+[workflow assembly] viki step starting step gzipAssemblyLog
+[step gzipAssemblyLog] start
+[job gzipAssemblyLog] Output of job will be cached in /Users/viki/Documents/cwl_cache/2e1f4e13b5b2d11d826c44102752146c
+[job gzipAssemblyLog] Skipping Docker software container '--memory' limit despite presence of ResourceRequirement with ramMin and/or ramMax setting. Consider running with --strict-memory-limit for increased portability assurance.
+[u'docker', u'run', u'-i', u'--volume=/Users/viki/Documents/cwl_cache/2e1f4e13b5b2d11d826c44102752146c:/var/spool/cwl:rw', u'--volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpxzZ9vM:/tmp:rw', u'--volume=/Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9/megahit_out/megahit.log:/var/lib/cwl/stgf7477ad0-2db7-494f-b701-820961d63f25/megahit.log:ro', u'--workdir=/var/spool/cwl', u'--read-only=true', '--log-driver=none', u'--user=501:20', u'--rm', u'--env=TMPDIR=/tmp', u'--env=HOME=/var/spool/cwl', 'virusx/pigz:2.3.4']
+[job gzipAssemblyLog] /Users/viki/Documents/cwl_cache/2e1f4e13b5b2d11d826c44102752146c$ docker \
+    run \
+    -i \
+    --volume=/Users/viki/Documents/cwl_cache/2e1f4e13b5b2d11d826c44102752146c:/var/spool/cwl:rw \
+    --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpxzZ9vM:/tmp:rw \
+    --volume=/Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9/megahit_out/megahit.log:/var/lib/cwl/stgf7477ad0-2db7-494f-b701-820961d63f25/megahit.log:ro \
+    --workdir=/var/spool/cwl \
+    --read-only=true \
+    --log-driver=none \
+    --user=501:20 \
+    --rm \
+    --env=TMPDIR=/tmp \
+    --env=HOME=/var/spool/cwl \
+    virusx/pigz:2.3.4 \
+    pigz \
+    -c \
+    /var/lib/cwl/stgf7477ad0-2db7-494f-b701-820961d63f25/megahit.log > /Users/viki/Documents/cwl_cache/2e1f4e13b5b2d11d826c44102752146c/megahit.log.gz
+viki job_popen called
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 556 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 560 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 572 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 574 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 588 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 293 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 305 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 319 ]
+outputs  :  {u'gz': {'checksum': 'sha1$07c6582b59d6f360b8ba76b0286cd99d539d966d', 'basename': 'megahit.log.gz', 'nameext': '.gz', 'nameroot': 'megahit.log', 'http://commonwl.org/cwltool#generation': 0, 'location': 'file:///Users/viki/Documents/cwl_cache/2e1f4e13b5b2d11d826c44102752146c/megahit.log.gz', 'class': 'File', 'size': 13320L}}
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 322 ]
+outputs  :  {u'gz': {'checksum': u'sha1$07c6582b59d6f360b8ba76b0286cd99d539d966d', 'basename': u'megahit.log.gz', 'nameext': u'.gz', 'nameroot': u'megahit.log', 'http://commonwl.org/cwltool#generation': 0, 'location': u'file:///Users/viki/Documents/cwl_cache/2e1f4e13b5b2d11d826c44102752146c/megahit.log.gz', 'class': u'File', 'size': 13320L}}
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 325 ]
+[job gzipAssemblyLog] viki job completed success
+[step gzipAssemblyLog] completed success
+[workflow assembly] completed success
+[step assembly] completed success
+viki parsing steps
+[workflow ] viki step starting step mapping
+[step mapping] start
+[workflow mapping] start
+viki parsing steps
+[workflow mapping] viki step starting step mapReadsToReference
+[step mapReadsToReference] start
+[job mapReadsToReference] Output of job will be cached in /Users/viki/Documents/cwl_cache/338d1d938f1a47059f2b653696c5878e
+[job mapReadsToReference] Skipping Docker software container '--memory' limit despite presence of ResourceRequirement with ramMin and/or ramMax setting. Consider running with --strict-memory-limit for increased portability assurance.
+[u'docker', u'run', u'-i', u'--volume=/Users/viki/Documents/cwl_cache/338d1d938f1a47059f2b653696c5878e:/var/spool/cwl:rw', u'--volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpZawCv7:/tmp:rw', u'--volume=/Users/viki/cwl_test/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stgb06def00-d4a8-4a7d-9a01-925fe60b5acc/sample1_R2.trimmed.fastq.gz:ro', u'--volume=/Users/viki/cwl_test/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stgfa56b748-de7c-4be9-8ac3-b56d64dbe595/sample1_R1.trimmed.fastq.gz:ro', u'--volume=/Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9/megahit_out/megahit.contigs.fa:/var/lib/cwl/stg00cbe516-a367-4cb0-8038-bd8358c1399e/megahit.contigs.fa:ro', u'--workdir=/var/spool/cwl', u'--read-only=true', '--log-driver=none', u'--user=501:20', u'--rm', u'--env=TMPDIR=/tmp', u'--env=HOME=/var/spool/cwl', 'virusx/bbmap:36.84--0']
+[job mapReadsToReference] /Users/viki/Documents/cwl_cache/338d1d938f1a47059f2b653696c5878e$ docker \
+    run \
+    -i \
+    --volume=/Users/viki/Documents/cwl_cache/338d1d938f1a47059f2b653696c5878e:/var/spool/cwl:rw \
+    --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpZawCv7:/tmp:rw \
+    --volume=/Users/viki/cwl_test/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stgb06def00-d4a8-4a7d-9a01-925fe60b5acc/sample1_R2.trimmed.fastq.gz:ro \
+    --volume=/Users/viki/cwl_test/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stgfa56b748-de7c-4be9-8ac3-b56d64dbe595/sample1_R1.trimmed.fastq.gz:ro \
+    --volume=/Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9/megahit_out/megahit.contigs.fa:/var/lib/cwl/stg00cbe516-a367-4cb0-8038-bd8358c1399e/megahit.contigs.fa:ro \
+    --workdir=/var/spool/cwl \
+    --read-only=true \
+    --log-driver=none \
+    --user=501:20 \
+    --rm \
+    --env=TMPDIR=/tmp \
+    --env=HOME=/var/spool/cwl \
+    virusx/bbmap:36.84--0 \
+    bbmap.sh \
+    -Xmx2000M \
+    nodisk=t \
+    out=stdout.sam \
+    in=/var/lib/cwl/stgfa56b748-de7c-4be9-8ac3-b56d64dbe595/sample1_R1.trimmed.fastq.gz \
+    in2=/var/lib/cwl/stgb06def00-d4a8-4a7d-9a01-925fe60b5acc/sample1_R2.trimmed.fastq.gz \
+    ref=/var/lib/cwl/stg00cbe516-a367-4cb0-8038-bd8358c1399e/megahit.contigs.fa > /Users/viki/Documents/cwl_cache/338d1d938f1a47059f2b653696c5878e/sample1.sam
+viki job_popen called
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 556 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 560 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 572 ]
+java -Djava.library.path=/usr/local/opt/bbmap-36.84/jni/ -ea -Xmx2000M -cp /usr/local/opt/bbmap-36.84/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 -Xmx2000M nodisk=t out=stdout.sam in=/var/lib/cwl/stgfa56b748-de7c-4be9-8ac3-b56d64dbe595/sample1_R1.trimmed.fastq.gz in2=/var/lib/cwl/stgb06def00-d4a8-4a7d-9a01-925fe60b5acc/sample1_R2.trimmed.fastq.gz ref=/var/lib/cwl/stg00cbe516-a367-4cb0-8038-bd8358c1399e/megahit.contigs.fa
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, -Xmx2000M, nodisk=t, out=stdout.sam, in=/var/lib/cwl/stgfa56b748-de7c-4be9-8ac3-b56d64dbe595/sample1_R1.trimmed.fastq.gz, in2=/var/lib/cwl/stgb06def00-d4a8-4a7d-9a01-925fe60b5acc/sample1_R2.trimmed.fastq.gz, ref=/var/lib/cwl/stg00cbe516-a367-4cb0-8038-bd8358c1399e/megahit.contigs.fa]
+
+BBMap version 36.84
+Retaining first best site only for ambiguous mappings.
+Executing dna.FastaToChromArrays2 [/var/lib/cwl/stg00cbe516-a367-4cb0-8038-bd8358c1399e/megahit.contigs.fa, 1, writeinthread=false, genscaffoldinfo=true, retain, waitforwriting=false, gz=true, maxlen=536670912, writechroms=false, minscaf=1, midpad=300, startpad=8000, stoppad=8000, nodisk=true]
+
+Set genScaffoldInfo=true
+Set genome to 1
+
+Loaded Reference:	0.029 seconds.
+Loading index for chunk 1-1, build 1
+Indexing threads started for block 0-1
+Indexing threads finished for block 0-1
+Generated Index:	1.026 seconds.
+Analyzed Index:   	6.678 seconds.
+Started output stream:	0.211 seconds.
+Cleared Memory:    	0.243 seconds.
+Processing reads in paired-ended mode.
+Started read stream.
+Started 2 mapping threads.
+
+
+
+Detecting finished threads: 0, 1
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	48928	(12883686 bases)
+
+Mapping:          	58.170 seconds.
+Reads/sec:       	841.12
+kBases/sec:      	221.48
+
+
+Pairing data:   	pct reads	num reads 	pct bases	   num bases
+
+mated pairs:     	 48.1974% 	    11791 	 51.7237% 	     6663914
+bad pairs:       	  0.7685% 	      188 	  0.7473% 	       96274
+insert size avg: 	  470.16
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 55.3916% 	    13551 	 55.7827% 	     3831375
+unambiguous:     	 55.1913% 	    13502 	 55.6813% 	     3824414
+ambiguous:       	  0.2003% 	       49 	  0.1013% 	        6961
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	  4.5455% 	     1112 	  4.2397% 	      291197
+semiperfect site:	 10.2068% 	     2497 	  9.9858% 	      685862
+rescued:         	 17.1803% 	     4203
+
+Match Rate:      	      NA 	       NA 	 95.3602% 	     3657587
+Error Rate:      	 81.6176% 	    11060 	  1.5891% 	       60950
+Sub Rate:        	 81.2117% 	    11005 	  1.3821% 	       53013
+Del Rate:        	  4.7377% 	      642 	  0.1088% 	        4172
+Ins Rate:        	  2.6124% 	      354 	  0.0982% 	        3765
+N Rate:          	 34.0934% 	     4620 	  3.0507% 	      117010
+
+
+Read 2 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 64.7032% 	    15829 	 64.7985% 	     3897818
+unambiguous:     	 63.9429% 	    15643 	 64.3650% 	     3871743
+ambiguous:       	  0.7603% 	      186 	  0.4335% 	       26075
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	 11.8460% 	     2898 	 11.8581% 	      713297
+semiperfect site:	 16.9760% 	     4153 	 17.1561% 	     1031989
+rescued:         	  5.9393% 	     1453
+
+Match Rate:      	      NA 	       NA 	 96.3181% 	     3758725
+Error Rate:      	 74.3761% 	    11773 	  1.4167% 	       55284
+Sub Rate:        	 73.5738% 	    11646 	  1.2482% 	       48711
+Del Rate:        	  2.8745% 	      455 	  0.1176% 	        4591
+Ins Rate:        	  2.4259% 	      384 	  0.0508% 	        1982
+N Rate:          	 21.8018% 	     3451 	  2.2653% 	       88400
+
+Total time:     	66.919 seconds.
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 574 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 588 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 293 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 305 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 319 ]
+outputs  :  {u'stdout': {'checksum': 'sha1$d1e194894621c0043339e004b4d20c5e9f17c4d4', 'basename': 'sample1.sam', 'nameext': '.sam', 'nameroot': 'sample1', 'http://commonwl.org/cwltool#generation': 0, 'location': 'file:///Users/viki/Documents/cwl_cache/338d1d938f1a47059f2b653696c5878e/sample1.sam', 'class': 'File', 'size': 31258947L}}
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 322 ]
+outputs  :  {u'stdout': {'checksum': u'sha1$d1e194894621c0043339e004b4d20c5e9f17c4d4', 'basename': u'sample1.sam', 'nameext': u'.sam', 'nameroot': u'sample1', 'http://commonwl.org/cwltool#generation': 0, 'location': u'file:///Users/viki/Documents/cwl_cache/338d1d938f1a47059f2b653696c5878e/sample1.sam', 'class': u'File', 'size': 31258947L}}
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 325 ]
+[job mapReadsToReference] viki job completed success
+[step mapReadsToReference] completed success
+[workflow mapping] completed success
+[step mapping] start
+[workflow mapping_2] start
+viki parsing steps
+[workflow mapping_2] viki step starting step mapReadsToReference_2
+[step mapReadsToReference_2] start
+[job mapReadsToReference_2] Output of job will be cached in /Users/viki/Documents/cwl_cache/2dd00efd939bd203e35d53eb479b8de4
+[job mapReadsToReference_2] Skipping Docker software container '--memory' limit despite presence of ResourceRequirement with ramMin and/or ramMax setting. Consider running with --strict-memory-limit for increased portability assurance.
+[u'docker', u'run', u'-i', u'--volume=/Users/viki/Documents/cwl_cache/2dd00efd939bd203e35d53eb479b8de4:/var/spool/cwl:rw', u'--volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpbiEh7v:/tmp:rw', u'--volume=/Users/viki/cwl_test/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stga2d8dd00-a9ad-487c-b16b-a6bd88b94755/sample2_R1.trimmed.fastq.gz:ro', u'--volume=/Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9/megahit_out/megahit.contigs.fa:/var/lib/cwl/stg63eb674a-4f15-40af-a9a6-eb1a6280d3d5/megahit.contigs.fa:ro', u'--volume=/Users/viki/cwl_test/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stg64c19d8b-2c2a-419d-9fbb-8b1ced48fe48/sample2_R2.trimmed.fastq.gz:ro', u'--workdir=/var/spool/cwl', u'--read-only=true', '--log-driver=none', u'--user=501:20', u'--rm', u'--env=TMPDIR=/tmp', u'--env=HOME=/var/spool/cwl', 'virusx/bbmap:36.84--0']
+[job mapReadsToReference_2] /Users/viki/Documents/cwl_cache/2dd00efd939bd203e35d53eb479b8de4$ docker \
+    run \
+    -i \
+    --volume=/Users/viki/Documents/cwl_cache/2dd00efd939bd203e35d53eb479b8de4:/var/spool/cwl:rw \
+    --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpbiEh7v:/tmp:rw \
+    --volume=/Users/viki/cwl_test/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stga2d8dd00-a9ad-487c-b16b-a6bd88b94755/sample2_R1.trimmed.fastq.gz:ro \
+    --volume=/Users/viki/Documents/cwl_cache/5f1266a3867811bdcad901c0bbc732f9/megahit_out/megahit.contigs.fa:/var/lib/cwl/stg63eb674a-4f15-40af-a9a6-eb1a6280d3d5/megahit.contigs.fa:ro \
+    --volume=/Users/viki/cwl_test/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stg64c19d8b-2c2a-419d-9fbb-8b1ced48fe48/sample2_R2.trimmed.fastq.gz:ro \
+    --workdir=/var/spool/cwl \
+    --read-only=true \
+    --log-driver=none \
+    --user=501:20 \
+    --rm \
+    --env=TMPDIR=/tmp \
+    --env=HOME=/var/spool/cwl \
+    virusx/bbmap:36.84--0 \
+    bbmap.sh \
+    -Xmx2000M \
+    nodisk=t \
+    out=stdout.sam \
+    in=/var/lib/cwl/stga2d8dd00-a9ad-487c-b16b-a6bd88b94755/sample2_R1.trimmed.fastq.gz \
+    in2=/var/lib/cwl/stg64c19d8b-2c2a-419d-9fbb-8b1ced48fe48/sample2_R2.trimmed.fastq.gz \
+    ref=/var/lib/cwl/stg63eb674a-4f15-40af-a9a6-eb1a6280d3d5/megahit.contigs.fa > /Users/viki/Documents/cwl_cache/2dd00efd939bd203e35d53eb479b8de4/sample2.sam
+viki job_popen called
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 556 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 560 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 572 ]
+java -Djava.library.path=/usr/local/opt/bbmap-36.84/jni/ -ea -Xmx2000M -cp /usr/local/opt/bbmap-36.84/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 -Xmx2000M nodisk=t out=stdout.sam in=/var/lib/cwl/stga2d8dd00-a9ad-487c-b16b-a6bd88b94755/sample2_R1.trimmed.fastq.gz in2=/var/lib/cwl/stg64c19d8b-2c2a-419d-9fbb-8b1ced48fe48/sample2_R2.trimmed.fastq.gz ref=/var/lib/cwl/stg63eb674a-4f15-40af-a9a6-eb1a6280d3d5/megahit.contigs.fa
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, -Xmx2000M, nodisk=t, out=stdout.sam, in=/var/lib/cwl/stga2d8dd00-a9ad-487c-b16b-a6bd88b94755/sample2_R1.trimmed.fastq.gz, in2=/var/lib/cwl/stg64c19d8b-2c2a-419d-9fbb-8b1ced48fe48/sample2_R2.trimmed.fastq.gz, ref=/var/lib/cwl/stg63eb674a-4f15-40af-a9a6-eb1a6280d3d5/megahit.contigs.fa]
+
+BBMap version 36.84
+Retaining first best site only for ambiguous mappings.
+Executing dna.FastaToChromArrays2 [/var/lib/cwl/stg63eb674a-4f15-40af-a9a6-eb1a6280d3d5/megahit.contigs.fa, 1, writeinthread=false, genscaffoldinfo=true, retain, waitforwriting=false, gz=true, maxlen=536670912, writechroms=false, minscaf=1, midpad=300, startpad=8000, stoppad=8000, nodisk=true]
+
+Set genScaffoldInfo=true
+Set genome to 1
+
+Loaded Reference:	0.031 seconds.
+Loading index for chunk 1-1, build 1
+Indexing threads started for block 0-1
+Indexing threads finished for block 0-1
+Generated Index:	1.020 seconds.
+Analyzed Index:   	7.741 seconds.
+Started output stream:	0.057 seconds.
+Cleared Memory:    	0.131 seconds.
+Processing reads in paired-ended mode.
+Started read stream.
+Started 2 mapping threads.
+Detecting finished threads: 0, 1
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	48926	(12907800 bases)
+
+Mapping:          	33.855 seconds.
+Reads/sec:       	1445.18
+kBases/sec:      	381.27
+
+
+Pairing data:   	pct reads	num reads 	pct bases	   num bases
+
+mated pairs:     	 45.7630% 	    11195 	 49.0907% 	     6336534
+bad pairs:       	  0.8421% 	      206 	  0.8346% 	      107734
+insert size avg: 	  463.42
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 53.6238% 	    13118 	 54.0500% 	     3715823
+unambiguous:     	 53.4644% 	    13079 	 53.9770% 	     3710801
+ambiguous:       	  0.1594% 	       39 	  0.0730% 	        5022
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	  4.5865% 	     1122 	  4.3204% 	      297018
+semiperfect site:	 10.1296% 	     2478 	  9.9468% 	      683819
+rescued:         	 15.6481% 	     3828
+
+Match Rate:      	      NA 	       NA 	 95.2491% 	     3543316
+Error Rate:      	 81.1557% 	    10646 	  1.5358% 	       57134
+Sub Rate:        	 80.6983% 	    10586 	  1.3391% 	       49816
+Del Rate:        	  4.5739% 	      600 	  0.1137% 	        4229
+Ins Rate:        	  2.3708% 	      311 	  0.0830% 	        3089
+N Rate:          	 35.3179% 	     4633 	  3.2151% 	      119602
+
+
+Read 2 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 63.8311% 	    15615 	 64.1102% 	     3867777
+unambiguous:     	 63.0340% 	    15420 	 63.6208% 	     3838255
+ambiguous:       	  0.7971% 	      195 	  0.4893% 	       29522
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	 12.0631% 	     2951 	 12.1327% 	      731969
+semiperfect site:	 17.2097% 	     4210 	 17.4845% 	     1054840
+rescued:         	  5.3755% 	     1315
+
+Match Rate:      	      NA 	       NA 	 96.3068% 	     3730029
+Error Rate:      	 73.5895% 	    11491 	  1.4223% 	       55088
+Sub Rate:        	 72.8146% 	    11370 	  1.2390% 	       47988
+Del Rate:        	  2.9523% 	      461 	  0.1367% 	        5293
+Ins Rate:        	  2.4336% 	      380 	  0.0467% 	        1807
+N Rate:          	 22.1134% 	     3453 	  2.2709% 	       87953
+
+Total time:     	43.236 seconds.
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 574 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 588 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 293 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 305 ]
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 319 ]
+outputs  :  {u'stdout': {'checksum': 'sha1$efd2b3cf785edceaa3cd7c5d9d32b19307be86ae', 'basename': 'sample2.sam', 'nameext': '.sam', 'nameroot': 'sample2', 'http://commonwl.org/cwltool#generation': 0, 'location': 'file:///Users/viki/Documents/cwl_cache/2dd00efd939bd203e35d53eb479b8de4/sample2.sam', 'class': 'File', 'size': 31292589L}}
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 322 ]
+outputs  :  {u'stdout': {'checksum': u'sha1$efd2b3cf785edceaa3cd7c5d9d32b19307be86ae', 'basename': u'sample2.sam', 'nameext': u'.sam', 'nameroot': u'sample2', 'http://commonwl.org/cwltool#generation': 0, 'location': u'file:///Users/viki/Documents/cwl_cache/2dd00efd939bd203e35d53eb479b8de4/sample2.sam', 'class': u'File', 'size': 31292589L}}
+viki [ /Users/viki/cwl_test/tool/cwltool/job.py : 325 ]
+[job mapReadsToReference_2] viki job completed success
+[step mapReadsToReference_2] completed success
+[workflow mapping_2] completed success
+[step mapping] completed success
+[workflow ] completed success
+{
+    "assemblyAssembly": {
+        "checksum": "sha1$d8dac7e31214b4fb6dfe05b18f65fb5baa29c93f", 
+        "basename": "megahit.contigs.fa", 
+        "location": "file:///Users/viki/cwl_test/tool/chris/output/megahit.contigs.fa", 
+        "path": "/Users/viki/cwl_test/tool/chris/output/megahit.contigs.fa", 
+        "class": "File", 
+        "size": 416915
+    }, 
+    "assemblyLog": {
+        "checksum": "sha1$07c6582b59d6f360b8ba76b0286cd99d539d966d", 
+        "basename": "megahit.log.gz", 
+        "location": "file:///Users/viki/cwl_test/tool/chris/output/megahit.log.gz", 
+        "path": "/Users/viki/cwl_test/tool/chris/output/megahit.log.gz", 
+        "class": "File", 
+        "size": 13320
+    }, 
+    "mappingSamFile": [
+        {
+            "checksum": "sha1$d1e194894621c0043339e004b4d20c5e9f17c4d4", 
+            "basename": "sample1.sam", 
+            "location": "file:///Users/viki/cwl_test/tool/chris/output/sample1.sam", 
+            "path": "/Users/viki/cwl_test/tool/chris/output/sample1.sam", 
+            "class": "File", 
+            "size": 31258947
+        }, 
+        {
+            "checksum": "sha1$efd2b3cf785edceaa3cd7c5d9d32b19307be86ae", 
+            "basename": "sample2.sam", 
+            "location": "file:///Users/viki/cwl_test/tool/chris/output/sample2.sam", 
+            "path": "/Users/viki/cwl_test/tool/chris/output/sample2.sam", 
+            "class": "File", 
+            "size": 31292589
+        }
+    ]
+}
+Final process status is success
+vv:chris viki$ 
+vv:chris viki$ 
+vv:chris viki$ 
+vv:chris viki$ 
+vv:chris viki$ 
+vv:chris viki$ pwd
+/Users/viki/cwl_test/tool/chris
+vv:chris viki$ ls
+c		log.txt1	run.sh		script1.log	test.log
+distributed_cwl	output		sc.log		t.log		testfile
+input_data	output.log	sc1		t.out		workflow
+vv:chris viki$ 
+vv:chris viki$ vim /tmp/script.log 
+vv:chris viki$ 
+

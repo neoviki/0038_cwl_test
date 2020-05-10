@@ -1,0 +1,1007 @@
+
+----------------------------------------
+
+Executing : nodejs --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval "use strict";
+process.stdin.setEncoding("utf8");
+var incoming = "";
+var firstInput = true;
+var context = {};
+
+process.stdin.on("data", function(chunk) {
+  incoming += chunk;
+  var i = incoming.indexOf("\n");
+  while (i > -1) {
+    try{
+      var input = incoming.substr(0, i);
+      incoming = incoming.substr(i+1);
+      var fn = JSON.parse(input);
+      if(firstInput){
+        context = require("vm").runInNewContext(fn, {});
+      }
+      else{
+        process.stdout.write(JSON.stringify(require("vm").runInNewContext(fn, context)) + "\n");
+      }
+    }
+    catch(e){
+      console.error(e);
+    }
+    if(firstInput){
+      firstInput = false;
+    }
+    else{
+      /*strings to indicate the process has finished*/
+      console.log("r1cepzbhUTxtykz5XTC4");
+      console.error("r1cepzbhUTxtykz5XTC4");
+    }
+
+    i = incoming.indexOf("\n");
+  }
+});
+process.stdin.on("end", process.exit);
+
+----------------------------------------
+
+----------------------------------------
+
+Executing : node -v
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmps_G6pI:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpYtIFTG:/tmp:rw --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stg9945dfc1-a383-4cf1-8a63-2e63e3b21be8/sample1_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stg03e3da54-a051-4bb0-a294-60bf903678de/sample2_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stgfa6ce8dc-4c61-485a-9266-7865501af1e7/sample2_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stga4f8a847-b2a6-408c-aa03-d4c328904798/sample1_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg3a728596-a5e4-4db6-8f7e-61c90974e250/sample2_unpaired.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg600d0512-8362-4e3c-bcf3-b3e073076e14/sample1_unpaired.trimmed.fastq.gz:ro --workdir=/var/spool/cwl --read-only=true --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl quay.io/biocontainers/megahit:1.1.1--py35_0 megahit -t 4 --out-prefix megahit -1 /var/lib/cwl/stga4f8a847-b2a6-408c-aa03-d4c328904798/sample1_R1.trimmed.fastq.gz,/var/lib/cwl/stgfa6ce8dc-4c61-485a-9266-7865501af1e7/sample2_R1.trimmed.fastq.gz -2 /var/lib/cwl/stg9945dfc1-a383-4cf1-8a63-2e63e3b21be8/sample1_R2.trimmed.fastq.gz,/var/lib/cwl/stg03e3da54-a051-4bb0-a294-60bf903678de/sample2_R2.trimmed.fastq.gz --presets meta-sensitive -r /var/lib/cwl/stg600d0512-8362-4e3c-bcf3-b3e073076e14/sample1_unpaired.trimmed.fastq.gz,/var/lib/cwl/stg3a728596-a5e4-4db6-8f7e-61c90974e250/sample2_unpaired.trimmed.fastq.gz
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpmdXf3T:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpi1_sTw:/tmp:rw --volume=/private/tmp/docker_tmps_G6pI/megahit_out/megahit.log:/var/lib/cwl/stgde24dceb-60ad-4c3c-80cb-19ca76d3df19/megahit.log:ro --workdir=/var/spool/cwl --read-only=true --log-driver=none --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl virusx/pigz:2.3.4 pigz -c /var/lib/cwl/stgde24dceb-60ad-4c3c-80cb-19ca76d3df19/megahit.log
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpPGwwoh:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpT_PukD:/tmp:rw --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stgea69f7f8-71e3-45fe-af10-4c44425f04d8/sample1_R1.trimmed.fastq.gz:ro --volume=/private/tmp/docker_tmps_G6pI/megahit_out/megahit.contigs.fa:/var/lib/cwl/stg10959d7e-c1c4-4802-b24a-e55582cc117e/megahit.contigs.fa:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stg5d0bacee-971a-4806-b11e-f03b0d05cc77/sample1_R2.trimmed.fastq.gz:ro --workdir=/var/spool/cwl --read-only=true --log-driver=none --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl virusx/bbmap:36.84--0 bbmap.sh -Xmx2000M nodisk=t out=stdout.sam in=/var/lib/cwl/stgea69f7f8-71e3-45fe-af10-4c44425f04d8/sample1_R1.trimmed.fastq.gz in2=/var/lib/cwl/stg5d0bacee-971a-4806-b11e-f03b0d05cc77/sample1_R2.trimmed.fastq.gz ref=/var/lib/cwl/stg10959d7e-c1c4-4802-b24a-e55582cc117e/megahit.contigs.fa
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpM1dTVm:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpkeevzW:/tmp:rw --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stgda189fe7-cd1e-4e85-b749-59d28f7ee1cb/sample2_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stg93ad0b79-4a37-4585-8450-eea963d8589e/sample2_R1.trimmed.fastq.gz:ro --volume=/private/tmp/docker_tmps_G6pI/megahit_out/megahit.contigs.fa:/var/lib/cwl/stgcf83836d-7622-4ed9-b916-5ab74c689166/megahit.contigs.fa:ro --workdir=/var/spool/cwl --read-only=true --log-driver=none --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl virusx/bbmap:36.84--0 bbmap.sh -Xmx2000M nodisk=t out=stdout.sam in=/var/lib/cwl/stg93ad0b79-4a37-4585-8450-eea963d8589e/sample2_R1.trimmed.fastq.gz in2=/var/lib/cwl/stgda189fe7-cd1e-4e85-b749-59d28f7ee1cb/sample2_R2.trimmed.fastq.gz ref=/var/lib/cwl/stgcf83836d-7622-4ed9-b916-5ab74c689166/megahit.contigs.fa
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------

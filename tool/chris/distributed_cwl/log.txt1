@@ -1,0 +1,56 @@
+viki parsing steps
+viki parsing steps
+viki parsing steps
+viki parsing steps
+viki job_popen called
+viki subprocess.Popen and executing command
+Executing :  [u'docker', u'run', u'-i', u'--volume=/tmp/tmp4f1_Ut:/var/spool/cwl:rw', u'--volume=/tmp/tmp0RTneU:/tmp:rw', u'--volume=/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stg8603f1d1-6a05-45bd-bada-76b52757d000/sample2_R2.trimmed.fastq.gz:ro', u'--volume=/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/input_data/sample1_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg95d90f14-96d3-449c-a147-a49807a3b2ef/sample1_unpaired.trimmed.fastq.gz:ro', u'--volume=/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/input_data/sample2_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg5b7017e1-9b65-46f4-bb85-9e586aee841e/sample2_unpaired.trimmed.fastq.gz:ro', u'--volume=/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stg0de00e7c-da3f-45df-b1e9-48d220474100/sample1_R2.trimmed.fastq.gz:ro', u'--volume=/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stg66190605-f6c5-4646-91a4-7bee130fa5a5/sample1_R1.trimmed.fastq.gz:ro', u'--volume=/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stg57d73df2-2c8f-4b27-81dc-738011543901/sample2_R1.trimmed.fastq.gz:ro', u'--workdir=/var/spool/cwl', u'--read-only=true', u'--user=0:0', u'--rm', u'--env=TMPDIR=/tmp', u'--env=HOME=/var/spool/cwl', u'quay.io/biocontainers/megahit:1.1.1--py35_0', u'megahit', u'-t', u'4', u'--out-prefix', u'megahit', u'-1', u'/var/lib/cwl/stg66190605-f6c5-4646-91a4-7bee130fa5a5/sample1_R1.trimmed.fastq.gz,/var/lib/cwl/stg57d73df2-2c8f-4b27-81dc-738011543901/sample2_R1.trimmed.fastq.gz', u'-2', u'/var/lib/cwl/stg0de00e7c-da3f-45df-b1e9-48d220474100/sample1_R2.trimmed.fastq.gz,/var/lib/cwl/stg8603f1d1-6a05-45bd-bada-76b52757d000/sample2_R2.trimmed.fastq.gz', u'--presets', u'meta-sensitive', u'-r', u'/var/lib/cwl/stg95d90f14-96d3-449c-a147-a49807a3b2ef/sample1_unpaired.trimmed.fastq.gz,/var/lib/cwl/stg5b7017e1-9b65-46f4-bb85-9e586aee841e/sample2_unpaired.trimmed.fastq.gz']
+viki parsing steps
+viki job_popen called
+viki subprocess.Popen and executing command
+Executing :  [u'docker', u'run', u'-i', u'--volume=/tmp/tmplZnFsO:/var/spool/cwl:rw', u'--volume=/tmp/tmparkm3w:/tmp:rw', u'--volume=/tmp/tmp4f1_Ut/megahit_out/megahit.log:/var/lib/cwl/stg5ed75836-c17c-4a0a-a98b-def50e507b3c/megahit.log:ro', u'--workdir=/var/spool/cwl', u'--read-only=true', u'--log-driver=none', u'--user=0:0', u'--rm', u'--env=TMPDIR=/tmp', u'--env=HOME=/var/spool/cwl', u'virusx/pigz:2.3.4', u'pigz', u'-c', u'/var/lib/cwl/stg5ed75836-c17c-4a0a-a98b-def50e507b3c/megahit.log']
+viki parsing steps
+viki parsing steps
+viki job_popen called
+viki subprocess.Popen and executing command
+Executing :  [u'docker', u'run', u'-i', u'--volume=/tmp/tmpH0O8Fl:/var/spool/cwl:rw', u'--volume=/tmp/tmpBtw364:/tmp:rw', u'--volume=/tmp/tmp4f1_Ut/megahit_out/megahit.contigs.fa:/var/lib/cwl/stgf396374a-92c0-458c-ad9e-b76f90271314/megahit.contigs.fa:ro', u'--volume=/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stg245a08bf-b199-4880-bc81-34832d07c4a3/sample1_R1.trimmed.fastq.gz:ro', u'--volume=/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stgd0aa08eb-d629-43d6-889a-f4537cca1bbd/sample1_R2.trimmed.fastq.gz:ro', u'--workdir=/var/spool/cwl', u'--read-only=true', u'--log-driver=none', u'--user=0:0', u'--rm', u'--env=TMPDIR=/tmp', u'--env=HOME=/var/spool/cwl', u'virusx/bbmap:36.84--0', u'bbmap.sh', u'-Xmx2000M', u'nodisk=t', u'out=stdout.sam', u'in=/var/lib/cwl/stg245a08bf-b199-4880-bc81-34832d07c4a3/sample1_R1.trimmed.fastq.gz', u'in2=/var/lib/cwl/stgd0aa08eb-d629-43d6-889a-f4537cca1bbd/sample1_R2.trimmed.fastq.gz', u'ref=/var/lib/cwl/stgf396374a-92c0-458c-ad9e-b76f90271314/megahit.contigs.fa']
+viki parsing steps
+viki job_popen called
+viki subprocess.Popen and executing command
+Executing :  [u'docker', u'run', u'-i', u'--volume=/tmp/tmpbyVIwD:/var/spool/cwl:rw', u'--volume=/tmp/tmphqjugr:/tmp:rw', u'--volume=/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stg9198ddd8-d29f-4e56-8be4-b57988ad6fc2/sample2_R2.trimmed.fastq.gz:ro', u'--volume=/tmp/tmp4f1_Ut/megahit_out/megahit.contigs.fa:/var/lib/cwl/stga83df7fc-5bf2-4600-9522-7ec0c2be4ae1/megahit.contigs.fa:ro', u'--volume=/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stg52f2e8de-9dbb-4b3e-8dd8-ea38a442c78b/sample2_R1.trimmed.fastq.gz:ro', u'--workdir=/var/spool/cwl', u'--read-only=true', u'--log-driver=none', u'--user=0:0', u'--rm', u'--env=TMPDIR=/tmp', u'--env=HOME=/var/spool/cwl', u'virusx/bbmap:36.84--0', u'bbmap.sh', u'-Xmx2000M', u'nodisk=t', u'out=stdout.sam', u'in=/var/lib/cwl/stg52f2e8de-9dbb-4b3e-8dd8-ea38a442c78b/sample2_R1.trimmed.fastq.gz', u'in2=/var/lib/cwl/stg9198ddd8-d29f-4e56-8be4-b57988ad6fc2/sample2_R2.trimmed.fastq.gz', u'ref=/var/lib/cwl/stga83df7fc-5bf2-4600-9522-7ec0c2be4ae1/megahit.contigs.fa']
+{
+    "assemblyAssembly": {
+        "checksum": "sha1$be99998daa02a0ff8812667a7323be912a3f6d04", 
+        "basename": "megahit.contigs.fa", 
+        "location": "file:///home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/megahit.contigs.fa", 
+        "path": "/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/megahit.contigs.fa", 
+        "class": "File", 
+        "size": 411017
+    }, 
+    "assemblyLog": {
+        "checksum": "sha1$671eef5a95fb5cc4322540278868dd1cb2dbb40d", 
+        "basename": "megahit.log.gz", 
+        "location": "file:///home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/megahit.log.gz", 
+        "path": "/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/megahit.log.gz", 
+        "class": "File", 
+        "size": 13071
+    }, 
+    "mappingSamFile": [
+        {
+            "checksum": "sha1$61c17e56e9d5f2c348479a52fd812e4cbcfaf967", 
+            "basename": "sample1.sam", 
+            "location": "file:///home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/sample1.sam", 
+            "path": "/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/sample1.sam", 
+            "class": "File", 
+            "size": 31367360
+        }, 
+        {
+            "checksum": "sha1$80ee38a701b6c3cdb1b4506fcce3efa9b91ead38", 
+            "basename": "sample2.sam", 
+            "location": "file:///home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/sample2.sam", 
+            "path": "/home/viki-haimor/t/cwltool_viki/tool/chris/distributed_cwl/output/sample2.sam", 
+            "class": "File", 
+            "size": 31435727
+        }
+    ]
+}

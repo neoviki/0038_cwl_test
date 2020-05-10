@@ -1,0 +1,25 @@
+sampleNames:
+  - sample1
+  - sample2
+
+forwardFiles:
+  - class: File
+    path: ../input_data/sample1_R1.trimmed.fastq.gz
+  - class: File
+    path: ../input_data/sample2_R1.trimmed.fastq.gz
+
+
+reverseFiles:
+  - class: File
+    path: ../input_data/sample1_R2.trimmed.fastq.gz
+  - class: File
+    path: ../input_data/sample2_R2.trimmed.fastq.gz
+
+unpairedFiles:
+  - class: File
+    path: ../input_data/sample1_unpaired.trimmed.fastq.gz
+  - class: File
+    path: ../input_data/sample2_unpaired.trimmed.fastq.gz
+
+megahitPresets: meta-sensitive
+

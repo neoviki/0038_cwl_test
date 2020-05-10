@@ -1,0 +1,644 @@
+
+----------------------------------------
+
+Executing : nodejs --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval "use strict";
+process.stdin.setEncoding("utf8");
+var incoming = "";
+var firstInput = true;
+var context = {};
+
+process.stdin.on("data", function(chunk) {
+  incoming += chunk;
+  var i = incoming.indexOf("\n");
+  while (i > -1) {
+    try{
+      var input = incoming.substr(0, i);
+      incoming = incoming.substr(i+1);
+      var fn = JSON.parse(input);
+      if(firstInput){
+        context = require("vm").runInNewContext(fn, {});
+      }
+      else{
+        process.stdout.write(JSON.stringify(require("vm").runInNewContext(fn, context)) + "\n");
+      }
+    }
+    catch(e){
+      console.error(e);
+    }
+    if(firstInput){
+      firstInput = false;
+    }
+    else{
+      /*strings to indicate the process has finished*/
+      console.log("r1cepzbhUTxtykz5XTC4");
+      console.error("r1cepzbhUTxtykz5XTC4");
+    }
+
+    i = incoming.indexOf("\n");
+  }
+});
+process.stdin.on("end", process.exit);
+
+----------------------------------------
+
+----------------------------------------
+
+Executing : node -v
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpTUdXTf:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpWgJcc5:/tmp:rw --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stgc627460c-1e18-4c6c-857c-94757f98e2d7/sample1_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stgf67f39ab-0f9d-4fb5-949d-27d4e2903697/sample2_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stgc7441484-9ba1-4b69-9c86-e069140c608f/sample2_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stgefe9e865-24d8-4483-bb68-f5a7c0522d35/sample1_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg80ad0307-c7df-4f8f-a2f2-97f4b9832243/sample2_unpaired.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_unpaired.trimmed.fastq.gz:/var/lib/cwl/stgfb860849-f41e-4b6a-8ccf-49b506ce2165/sample1_unpaired.trimmed.fastq.gz:ro --workdir=/var/spool/cwl --read-only=true --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl quay.io/biocontainers/megahit:1.1.1--py35_0 megahit -t 4 --out-prefix megahit -1 /var/lib/cwl/stgefe9e865-24d8-4483-bb68-f5a7c0522d35/sample1_R1.trimmed.fastq.gz,/var/lib/cwl/stgc7441484-9ba1-4b69-9c86-e069140c608f/sample2_R1.trimmed.fastq.gz -2 /var/lib/cwl/stgc627460c-1e18-4c6c-857c-94757f98e2d7/sample1_R2.trimmed.fastq.gz,/var/lib/cwl/stgf67f39ab-0f9d-4fb5-949d-27d4e2903697/sample2_R2.trimmed.fastq.gz --presets meta-sensitive -r /var/lib/cwl/stgfb860849-f41e-4b6a-8ccf-49b506ce2165/sample1_unpaired.trimmed.fastq.gz,/var/lib/cwl/stg80ad0307-c7df-4f8f-a2f2-97f4b9832243/sample2_unpaired.trimmed.fastq.gz
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpz0e6pi:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpWpGqKh:/tmp:rw --volume=/private/tmp/docker_tmpTUdXTf/megahit_out/megahit.log:/var/lib/cwl/stga56d0fde-3f67-4c8b-95df-fa3375de7a35/megahit.log:ro --workdir=/var/spool/cwl --read-only=true --log-driver=none --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl virusx/pigz:2.3.4 pigz -c /var/lib/cwl/stga56d0fde-3f67-4c8b-95df-fa3375de7a35/megahit.log
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmp8DUWgk:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpK2vzf1:/tmp:rw --volume=/private/tmp/docker_tmpTUdXTf/megahit_out/megahit.contigs.fa:/var/lib/cwl/stgca29b6a1-a6dc-43eb-a179-7907d23782ee/megahit.contigs.fa:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stgb95a8c02-a7a7-4fc9-86d3-0b1005599a74/sample1_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stg47bb2a89-d735-4d0c-86dc-03dadc5303e2/sample1_R2.trimmed.fastq.gz:ro --workdir=/var/spool/cwl --read-only=true --log-driver=none --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl virusx/bbmap:36.84--0 bbmap.sh -Xmx2000M nodisk=t out=stdout.sam in=/var/lib/cwl/stgb95a8c02-a7a7-4fc9-86d3-0b1005599a74/sample1_R1.trimmed.fastq.gz in2=/var/lib/cwl/stg47bb2a89-d735-4d0c-86dc-03dadc5303e2/sample1_R2.trimmed.fastq.gz ref=/var/lib/cwl/stgca29b6a1-a6dc-43eb-a179-7907d23782ee/megahit.contigs.fa
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpJ17ApM:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpFBnH8K:/tmp:rw --volume=/private/tmp/docker_tmpTUdXTf/megahit_out/megahit.contigs.fa:/var/lib/cwl/stg387c1441-39c0-439d-bfb1-0561cbfa4ff4/megahit.contigs.fa:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stgafc1bcbc-9597-4ed4-b9fe-d3e14f416b36/sample2_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stgf65ddbd0-e175-4fd5-bec5-42a4650804a6/sample2_R2.trimmed.fastq.gz:ro --workdir=/var/spool/cwl --read-only=true --log-driver=none --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl virusx/bbmap:36.84--0 bbmap.sh -Xmx2000M nodisk=t out=stdout.sam in=/var/lib/cwl/stgafc1bcbc-9597-4ed4-b9fe-d3e14f416b36/sample2_R1.trimmed.fastq.gz in2=/var/lib/cwl/stgf65ddbd0-e175-4fd5-bec5-42a4650804a6/sample2_R2.trimmed.fastq.gz ref=/var/lib/cwl/stg387c1441-39c0-439d-bfb1-0561cbfa4ff4/megahit.contigs.fa
+----------------------------------------
+
+----------------------------------------
+
+Executing : nodejs --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval "use strict";
+process.stdin.setEncoding("utf8");
+var incoming = "";
+var firstInput = true;
+var context = {};
+
+process.stdin.on("data", function(chunk) {
+  incoming += chunk;
+  var i = incoming.indexOf("\n");
+  while (i > -1) {
+    try{
+      var input = incoming.substr(0, i);
+      incoming = incoming.substr(i+1);
+      var fn = JSON.parse(input);
+      if(firstInput){
+        context = require("vm").runInNewContext(fn, {});
+      }
+      else{
+        process.stdout.write(JSON.stringify(require("vm").runInNewContext(fn, context)) + "\n");
+      }
+    }
+    catch(e){
+      console.error(e);
+    }
+    if(firstInput){
+      firstInput = false;
+    }
+    else{
+      /*strings to indicate the process has finished*/
+      console.log("r1cepzbhUTxtykz5XTC4");
+      console.error("r1cepzbhUTxtykz5XTC4");
+    }
+
+    i = incoming.indexOf("\n");
+  }
+});
+process.stdin.on("end", process.exit);
+
+----------------------------------------
+
+----------------------------------------
+
+Executing : node -v
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpY7ASIS:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpetWcad:/tmp:rw --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stg3c3acb98-2526-4435-83a1-92ca97aff665/sample1_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stg3bc3777b-2b59-45e6-8baa-10d1e951a899/sample2_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stgc0d2b670-6d28-4ebc-bb40-c028a3d142e9/sample2_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stg4331293a-6745-4422-a3c4-79bb9a230eb1/sample1_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg3bbe8bf5-3332-4594-af9f-d8205feb8eee/sample2_unpaired.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg57c25c20-8cde-4b1c-aa50-f9ebe6b44fde/sample1_unpaired.trimmed.fastq.gz:ro --workdir=/var/spool/cwl --read-only=true --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl quay.io/biocontainers/megahit:1.1.1--py35_0 megahit -t 4 --out-prefix megahit -1 /var/lib/cwl/stg4331293a-6745-4422-a3c4-79bb9a230eb1/sample1_R1.trimmed.fastq.gz,/var/lib/cwl/stgc0d2b670-6d28-4ebc-bb40-c028a3d142e9/sample2_R1.trimmed.fastq.gz -2 /var/lib/cwl/stg3c3acb98-2526-4435-83a1-92ca97aff665/sample1_R2.trimmed.fastq.gz,/var/lib/cwl/stg3bc3777b-2b59-45e6-8baa-10d1e951a899/sample2_R2.trimmed.fastq.gz --presets meta-sensitive -r /var/lib/cwl/stg57c25c20-8cde-4b1c-aa50-f9ebe6b44fde/sample1_unpaired.trimmed.fastq.gz,/var/lib/cwl/stg3bbe8bf5-3332-4594-af9f-d8205feb8eee/sample2_unpaired.trimmed.fastq.gz
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpl_srzp:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmp29vpDA:/tmp:rw --volume=/private/tmp/docker_tmpY7ASIS/megahit_out/megahit.log:/var/lib/cwl/stga1598e6a-93ce-40d2-9381-8d409d1586f3/megahit.log:ro --workdir=/var/spool/cwl --read-only=true --log-driver=none --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl virusx/pigz:2.3.4 pigz -c /var/lib/cwl/stga1598e6a-93ce-40d2-9381-8d409d1586f3/megahit.log
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpfTmcCc:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpvGWjdH:/tmp:rw --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stg5a3758a5-0cac-4a8d-a7f4-f524e87ae67b/sample1_R1.trimmed.fastq.gz:ro --volume=/private/tmp/docker_tmpY7ASIS/megahit_out/megahit.contigs.fa:/var/lib/cwl/stg6c509034-7a57-40ed-a6a7-4e1eebd742ad/megahit.contigs.fa:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stg17440381-e272-4594-a4f5-936b01fb9342/sample1_R2.trimmed.fastq.gz:ro --workdir=/var/spool/cwl --read-only=true --log-driver=none --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl virusx/bbmap:36.84--0 bbmap.sh -Xmx2000M nodisk=t out=stdout.sam in=/var/lib/cwl/stg5a3758a5-0cac-4a8d-a7f4-f524e87ae67b/sample1_R1.trimmed.fastq.gz in2=/var/lib/cwl/stg17440381-e272-4594-a4f5-936b01fb9342/sample1_R2.trimmed.fastq.gz ref=/var/lib/cwl/stg6c509034-7a57-40ed-a6a7-4e1eebd742ad/megahit.contigs.fa
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpmXcQuC:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpCls7TP:/tmp:rw --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stg43920307-7d9a-4b25-a0e9-33089094d991/sample2_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stg285df546-9417-47c2-8aa7-c262cb7bff03/sample2_R1.trimmed.fastq.gz:ro --volume=/private/tmp/docker_tmpY7ASIS/megahit_out/megahit.contigs.fa:/var/lib/cwl/stg68735f1e-c685-4e49-91c9-c58298206cae/megahit.contigs.fa:ro --workdir=/var/spool/cwl --read-only=true --log-driver=none --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl virusx/bbmap:36.84--0 bbmap.sh -Xmx2000M nodisk=t out=stdout.sam in=/var/lib/cwl/stg285df546-9417-47c2-8aa7-c262cb7bff03/sample2_R1.trimmed.fastq.gz in2=/var/lib/cwl/stg43920307-7d9a-4b25-a0e9-33089094d991/sample2_R2.trimmed.fastq.gz ref=/var/lib/cwl/stg68735f1e-c685-4e49-91c9-c58298206cae/megahit.contigs.fa
+----------------------------------------
+
+----------------------------------------
+
+Executing : nodejs --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval "use strict";
+process.stdin.setEncoding("utf8");
+var incoming = "";
+var firstInput = true;
+var context = {};
+
+process.stdin.on("data", function(chunk) {
+  incoming += chunk;
+  var i = incoming.indexOf("\n");
+  while (i > -1) {
+    try{
+      var input = incoming.substr(0, i);
+      incoming = incoming.substr(i+1);
+      var fn = JSON.parse(input);
+      if(firstInput){
+        context = require("vm").runInNewContext(fn, {});
+      }
+      else{
+        process.stdout.write(JSON.stringify(require("vm").runInNewContext(fn, context)) + "\n");
+      }
+    }
+    catch(e){
+      console.error(e);
+    }
+    if(firstInput){
+      firstInput = false;
+    }
+    else{
+      /*strings to indicate the process has finished*/
+      console.log("r1cepzbhUTxtykz5XTC4");
+      console.error("r1cepzbhUTxtykz5XTC4");
+    }
+
+    i = incoming.indexOf("\n");
+  }
+});
+process.stdin.on("end", process.exit);
+
+----------------------------------------
+
+----------------------------------------
+
+Executing : node -v
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpCVPdwU:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmp1UCl49:/tmp:rw --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stg0d211d1a-e339-4541-9dad-31efb56a26af/sample1_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stg56a8e528-7cba-4f1d-9567-2f8ed63f7fbd/sample2_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stg3fdbcc75-3876-4a5b-91c9-04bd9fea0592/sample2_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stgc1cfe461-dbbe-426f-8b2b-189d3140ccf1/sample1_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg6e36c5b7-6582-45f8-b6d5-1ef16a7b4ab6/sample2_unpaired.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg644e508b-90c1-4529-81d1-cac398f6b918/sample1_unpaired.trimmed.fastq.gz:ro --workdir=/var/spool/cwl --read-only=true --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl quay.io/biocontainers/megahit:1.1.1--py35_0 megahit -t 4 --out-prefix megahit -1 /var/lib/cwl/stgc1cfe461-dbbe-426f-8b2b-189d3140ccf1/sample1_R1.trimmed.fastq.gz,/var/lib/cwl/stg3fdbcc75-3876-4a5b-91c9-04bd9fea0592/sample2_R1.trimmed.fastq.gz -2 /var/lib/cwl/stg0d211d1a-e339-4541-9dad-31efb56a26af/sample1_R2.trimmed.fastq.gz,/var/lib/cwl/stg56a8e528-7cba-4f1d-9567-2f8ed63f7fbd/sample2_R2.trimmed.fastq.gz --presets meta-sensitive -r /var/lib/cwl/stg644e508b-90c1-4529-81d1-cac398f6b918/sample1_unpaired.trimmed.fastq.gz,/var/lib/cwl/stg6e36c5b7-6582-45f8-b6d5-1ef16a7b4ab6/sample2_unpaired.trimmed.fastq.gz
+----------------------------------------
+
+----------------------------------------
+
+Executing : nodejs --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval "use strict";
+process.stdin.setEncoding("utf8");
+var incoming = "";
+var firstInput = true;
+var context = {};
+
+process.stdin.on("data", function(chunk) {
+  incoming += chunk;
+  var i = incoming.indexOf("\n");
+  while (i > -1) {
+    try{
+      var input = incoming.substr(0, i);
+      incoming = incoming.substr(i+1);
+      var fn = JSON.parse(input);
+      if(firstInput){
+        context = require("vm").runInNewContext(fn, {});
+      }
+      else{
+        process.stdout.write(JSON.stringify(require("vm").runInNewContext(fn, context)) + "\n");
+      }
+    }
+    catch(e){
+      console.error(e);
+    }
+    if(firstInput){
+      firstInput = false;
+    }
+    else{
+      /*strings to indicate the process has finished*/
+      console.log("r1cepzbhUTxtykz5XTC4");
+      console.error("r1cepzbhUTxtykz5XTC4");
+    }
+
+    i = incoming.indexOf("\n");
+  }
+});
+process.stdin.on("end", process.exit);
+
+----------------------------------------
+
+----------------------------------------
+
+Executing : node -v
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpjaBG0h:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpllUVYb:/tmp:rw --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stg80cd0975-3c90-4904-95a8-9fce49b78a8c/sample1_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stg30ca3100-712a-44d5-b591-28cc9760cca7/sample2_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stg9e69212d-d832-43c4-bcb2-1bda43882de0/sample2_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stgfecaf297-acf2-4623-9238-1da645a7fd43/sample1_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg15cb23bc-34c9-41b5-9a09-59d30ad2845c/sample2_unpaired.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg5cd2e892-3889-4001-a1e6-bd267f61dbd5/sample1_unpaired.trimmed.fastq.gz:ro --workdir=/var/spool/cwl --read-only=true --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl quay.io/biocontainers/megahit:1.1.1--py35_0 megahit -t 4 --out-prefix megahit -1 /var/lib/cwl/stgfecaf297-acf2-4623-9238-1da645a7fd43/sample1_R1.trimmed.fastq.gz,/var/lib/cwl/stg9e69212d-d832-43c4-bcb2-1bda43882de0/sample2_R1.trimmed.fastq.gz -2 /var/lib/cwl/stg80cd0975-3c90-4904-95a8-9fce49b78a8c/sample1_R2.trimmed.fastq.gz,/var/lib/cwl/stg30ca3100-712a-44d5-b591-28cc9760cca7/sample2_R2.trimmed.fastq.gz --presets meta-sensitive -r /var/lib/cwl/stg5cd2e892-3889-4001-a1e6-bd267f61dbd5/sample1_unpaired.trimmed.fastq.gz,/var/lib/cwl/stg15cb23bc-34c9-41b5-9a09-59d30ad2845c/sample2_unpaired.trimmed.fastq.gz
+----------------------------------------
+
+----------------------------------------
+
+Executing : nodejs --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval "use strict";
+process.stdin.setEncoding("utf8");
+var incoming = "";
+var firstInput = true;
+var context = {};
+
+process.stdin.on("data", function(chunk) {
+  incoming += chunk;
+  var i = incoming.indexOf("\n");
+  while (i > -1) {
+    try{
+      var input = incoming.substr(0, i);
+      incoming = incoming.substr(i+1);
+      var fn = JSON.parse(input);
+      if(firstInput){
+        context = require("vm").runInNewContext(fn, {});
+      }
+      else{
+        process.stdout.write(JSON.stringify(require("vm").runInNewContext(fn, context)) + "\n");
+      }
+    }
+    catch(e){
+      console.error(e);
+    }
+    if(firstInput){
+      firstInput = false;
+    }
+    else{
+      /*strings to indicate the process has finished*/
+      console.log("r1cepzbhUTxtykz5XTC4");
+      console.error("r1cepzbhUTxtykz5XTC4");
+    }
+
+    i = incoming.indexOf("\n");
+  }
+});
+process.stdin.on("end", process.exit);
+
+----------------------------------------
+
+----------------------------------------
+
+Executing : node -v
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : nodejs --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval "use strict";
+process.stdin.setEncoding("utf8");
+var incoming = "";
+var firstInput = true;
+var context = {};
+
+process.stdin.on("data", function(chunk) {
+  incoming += chunk;
+  var i = incoming.indexOf("\n");
+  while (i > -1) {
+    try{
+      var input = incoming.substr(0, i);
+      incoming = incoming.substr(i+1);
+      var fn = JSON.parse(input);
+      if(firstInput){
+        context = require("vm").runInNewContext(fn, {});
+      }
+      else{
+        process.stdout.write(JSON.stringify(require("vm").runInNewContext(fn, context)) + "\n");
+      }
+    }
+    catch(e){
+      console.error(e);
+    }
+    if(firstInput){
+      firstInput = false;
+    }
+    else{
+      /*strings to indicate the process has finished*/
+      console.log("r1cepzbhUTxtykz5XTC4");
+      console.error("r1cepzbhUTxtykz5XTC4");
+    }
+
+    i = incoming.indexOf("\n");
+  }
+});
+process.stdin.on("end", process.exit);
+
+----------------------------------------
+
+----------------------------------------
+
+Executing : node -v
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpw0dZrV:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmp87Cm3D:/tmp:rw --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stg965f28d9-506a-46a0-8a13-5e965af1ea64/sample1_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stg01f31e24-b9de-47e4-8a93-73324ac50eb8/sample2_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stgc563ef93-f54d-4d63-b5ff-2b3ee812f9ec/sample2_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stga4005da2-13a5-4c9d-abbf-3a080a1df581/sample1_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_unpaired.trimmed.fastq.gz:/var/lib/cwl/stgbb528850-7fa9-4b5d-b83e-acd64c72ff30/sample2_unpaired.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_unpaired.trimmed.fastq.gz:/var/lib/cwl/stgf5a3173c-4524-4f8d-ae94-d8aa718f5412/sample1_unpaired.trimmed.fastq.gz:ro --workdir=/var/spool/cwl --read-only=true --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl quay.io/biocontainers/megahit:1.1.1--py35_0 megahit -t 4 --out-prefix megahit -1 /var/lib/cwl/stga4005da2-13a5-4c9d-abbf-3a080a1df581/sample1_R1.trimmed.fastq.gz,/var/lib/cwl/stgc563ef93-f54d-4d63-b5ff-2b3ee812f9ec/sample2_R1.trimmed.fastq.gz -2 /var/lib/cwl/stg965f28d9-506a-46a0-8a13-5e965af1ea64/sample1_R2.trimmed.fastq.gz,/var/lib/cwl/stg01f31e24-b9de-47e4-8a93-73324ac50eb8/sample2_R2.trimmed.fastq.gz --presets meta-sensitive -r /var/lib/cwl/stgf5a3173c-4524-4f8d-ae94-d8aa718f5412/sample1_unpaired.trimmed.fastq.gz,/var/lib/cwl/stgbb528850-7fa9-4b5d-b83e-acd64c72ff30/sample2_unpaired.trimmed.fastq.gz
+----------------------------------------
+
+----------------------------------------
+
+Executing : nodejs --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval process.stdout.write('t')
+----------------------------------------
+
+----------------------------------------
+
+Executing : node --eval "use strict";
+process.stdin.setEncoding("utf8");
+var incoming = "";
+var firstInput = true;
+var context = {};
+
+process.stdin.on("data", function(chunk) {
+  incoming += chunk;
+  var i = incoming.indexOf("\n");
+  while (i > -1) {
+    try{
+      var input = incoming.substr(0, i);
+      incoming = incoming.substr(i+1);
+      var fn = JSON.parse(input);
+      if(firstInput){
+        context = require("vm").runInNewContext(fn, {});
+      }
+      else{
+        process.stdout.write(JSON.stringify(require("vm").runInNewContext(fn, context)) + "\n");
+      }
+    }
+    catch(e){
+      console.error(e);
+    }
+    if(firstInput){
+      firstInput = false;
+    }
+    else{
+      /*strings to indicate the process has finished*/
+      console.log("r1cepzbhUTxtykz5XTC4");
+      console.error("r1cepzbhUTxtykz5XTC4");
+    }
+
+    i = incoming.indexOf("\n");
+  }
+});
+process.stdin.on("end", process.exit);
+
+----------------------------------------
+
+----------------------------------------
+
+Executing : node -v
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker version
+----------------------------------------
+
+----------------------------------------
+
+Executing : boot2docker status
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker-machine active
+----------------------------------------
+
+----------------------------------------
+
+Executing : docker run -i --volume=/private/tmp/docker_tmpIiIQkm:/var/spool/cwl:rw --volume=/private/var/folders/nc/swc3fxbx4wx1g4m60zl1r8h00000gn/T/tmpYYLhyF:/tmp:rw --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R2.trimmed.fastq.gz:/var/lib/cwl/stg954bb249-b77d-417f-a4b8-a2f0177f1ebe/sample1_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R2.trimmed.fastq.gz:/var/lib/cwl/stgfcf64575-0bb6-442a-898f-236ceaca4e88/sample2_R2.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_R1.trimmed.fastq.gz:/var/lib/cwl/stg9432f755-b100-462f-95e2-5232a7561d34/sample2_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_R1.trimmed.fastq.gz:/var/lib/cwl/stgd16bedae-61d4-4327-a9aa-7d593c58e284/sample1_R1.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample2_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg0d5c985b-eeef-44a2-9ba1-fb102fd27e5f/sample2_unpaired.trimmed.fastq.gz:ro --volume=/Users/viki/Documents/cwl_tool/tool/chris/input_data/sample1_unpaired.trimmed.fastq.gz:/var/lib/cwl/stg54f99a68-e093-4ede-930d-4f040ca33d88/sample1_unpaired.trimmed.fastq.gz:ro --workdir=/var/spool/cwl --read-only=true --user=501:20 --rm --env=TMPDIR=/tmp --env=HOME=/var/spool/cwl quay.io/biocontainers/megahit:1.1.1--py35_0 megahit -t 4 --out-prefix megahit -1 /var/lib/cwl/stgd16bedae-61d4-4327-a9aa-7d593c58e284/sample1_R1.trimmed.fastq.gz,/var/lib/cwl/stg9432f755-b100-462f-95e2-5232a7561d34/sample2_R1.trimmed.fastq.gz -2 /var/lib/cwl/stg954bb249-b77d-417f-a4b8-a2f0177f1ebe/sample1_R2.trimmed.fastq.gz,/var/lib/cwl/stgfcf64575-0bb6-442a-898f-236ceaca4e88/sample2_R2.trimmed.fastq.gz --presets meta-sensitive -r /var/lib/cwl/stg54f99a68-e093-4ede-930d-4f040ca33d88/sample1_unpaired.trimmed.fastq.gz,/var/lib/cwl/stg0d5c985b-eeef-44a2-9ba1-fb102fd27e5f/sample2_unpaired.trimmed.fastq.gz
+----------------------------------------
